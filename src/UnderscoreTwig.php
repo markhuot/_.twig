@@ -22,4 +22,17 @@ class UnderscoreTwig {
     return $arrayOfLinks;
   }
 
+  public function map($oldArray, $mappings)
+  {
+    $newArray = array();
+    foreach ($oldArray as $index => $row) {
+      foreach ($mappings as $newKey => $oldKey) {
+        if (isset((object)$row->{$oldKey})) {
+          $newArray[$index][$newKey] = (object)$row->{$oldKey};
+        }
+      }
+    }
+    return $newArray;
+  }
+
 }
