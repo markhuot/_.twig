@@ -35,13 +35,26 @@ class UnderscoreTwig {
     return $newArray;
   }
 
-  public function wrapIfNotEmpty($wrap='<p>', $variable, $close='</p>)
-  {
-    if (!empty($variable)) {
-      return $wrap.$variable.$close;
-    }
 
-    return '';
-  }
+	/**
+	 * Wraps the content in a tag with optional css class names
+	 * using Emmet-style sytax for class names (e.g. 'div.foo.bar')
+	 * only if the content is not empty.
+	 * @todo Implement other attributes like id, data-, etc
+	 */
+	public function wrapIfNotEmpty($str, $tag = 'p')
+	{
+		$result = '';
 
+		if ($str)
+		{
+			$parts = explode('.', trim($tag));
+			$tag   = array_shift($parts);
+			$class = implode(' ', $parts);
+			if ($class) $class = " class=\"$class\"";
+			$result .= "<{$tag}{$class}>{$str}</{$tag}>";
+		}
+
+		return $result;
+	}
 }
