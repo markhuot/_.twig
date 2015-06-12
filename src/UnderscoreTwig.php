@@ -6,14 +6,20 @@ class UnderscoreTwig {
   {
     $newArray = array();
     foreach ($oldArray as $row) {
-      if (is_object($row) && isset($row->{$key})) {
-        $newArray[] = $row->{$key};
-      }
-      else if (is_array($row) && isset($row[$key])) {
-        $newArray[] = $row[$key];
+      if (isset((object)$row->{$key})) {
+        $newArray[] = (object)$row->{$key};
       }
     }
     return $newArray;
+  }
+
+  public function links($objects, $title, $href, $prefix='')
+  {
+    $arrayOfLinks = array();
+    foreach ($objects as (object)$object) {
+      $arrayOfLinks[] = '<a href="'.$prefix.$object->{$href}.'">'.$object->{$title}.'</a>';
+    }
+    return $arrayOfLinks;
   }
 
 }
