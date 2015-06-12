@@ -35,4 +35,9 @@ class UnderscoreTwig {
     return $newArray;
   }
 
+  public function wrapIfNotEmpty($wrapper='<p />', $variable)
+  {
+
+  }
+
 }
