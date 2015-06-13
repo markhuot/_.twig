@@ -1,8 +1,5 @@
 <?php
 
-use Twig_Extension;
-use Twig_Filter_Method;
-
 class UnderscoreTwigExtension extends Twig_Extension
 {
 
@@ -10,9 +7,9 @@ class UnderscoreTwigExtension extends Twig_Extension
         return 'underscore';
     }
 
-    public function getVariables() {
+    public function getGlobals() {
         return array(
-            '_' => new Twig_Variable(new TwigUnderscore()),
+            '_' => new UnderscoreTwig\UnderscoreTwig(),
         );
     }
 }

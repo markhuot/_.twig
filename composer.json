@@ -1,0 +1,23 @@
+{
+  "name": "markhuot/_.twig",
+  "description": "A library of common functional helpers for Twig.",
+  "keywords": ["twig","helpers","underscore"],
+  "homepage": "http://github.com/markhuot/_.twig",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mark Huot",
+      "email": "mark@markhuot.com"
+    }
+  ],
+  "require": {
+    "twig/twig": "~1.12"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.7.*"
+  },
+  "autoload": {
+    "psr-4": { "UnderscoreTwig\\": "src/" }
+  }
+}
